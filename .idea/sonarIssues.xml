@@ -63,7 +63,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/exceptions/WrongTemplateException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/starter/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/utils/DataParser.java">
           <value>
             <set />
           </value>
@@ -84,6 +94,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/utils/FileTemplateUtils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/workers/DataParser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/workers/Docx.java">
           <value>
             <set />
           </value>

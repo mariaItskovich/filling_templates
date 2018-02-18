@@ -3,18 +3,23 @@ package utils;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import workers.DataParser;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by user1 on 09.12.2017.
+ * Класс для работы с входными данными
  */
 public class FileDataUtils {
 
-    public static List<Map<String, String>> getData(String prefix, String suffix) {
-        String path = getPathToFile();
+    /**
+     * Метод возвращает список замен, которые надо подставить в шаболо вместо паттерна
+     * Мапа: ключ - значение паттерна, значение - то, чем заменить паттерн
+     */
+    public static List<Map<String, String>> getData(String prefix, String suffix, DataParser parser) {
+        String path = parser.getInputPath();
 
         List<Map<String, String>> data = new ArrayList<>();
 
@@ -42,11 +47,5 @@ public class FileDataUtils {
             e.printStackTrace();
         }
         return data;
-    }
-
-    private static String getPathToFile() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите полный путь до файла с данными");
-        return in.nextLine();
     }
 }

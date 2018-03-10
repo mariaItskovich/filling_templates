@@ -18,7 +18,7 @@ public class FileDataUtils {
      * Метод возвращает список замен, которые надо подставить в шаболо вместо паттерна
      * Мапа: ключ - значение паттерна, значение - то, чем заменить паттерн
      */
-    public static List<Map<String, String>> getData(String prefix, String suffix, DataParser parser) {
+    public static List<Map<String, String>> getData(String prefix, String suffix, DataParser parser){
         String path = parser.getInputPath();
 
         List<Map<String, String>> data = new ArrayList<>();

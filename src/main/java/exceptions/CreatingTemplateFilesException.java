@@ -1,7 +1,7 @@
 package exceptions;
 
 /**
- * Класс исключения опреации создания файлов
+ * Класс исключения операции создания файлов
  */
 public class CreatingTemplateFilesException extends RuntimeException {
     public CreatingTemplateFilesException(String message) {

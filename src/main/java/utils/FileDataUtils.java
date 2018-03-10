@@ -1,9 +1,9 @@
 package utils;
 
+import api.DataParser;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import workers.DataParser;
 
 import java.io.FileInputStream;
 import java.io.IOException;

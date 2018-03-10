@@ -1,11 +1,14 @@
 package workers;
 
+import api.DataParser;
+
+import java.io.File;
 import java.util.Scanner;
 
 /**
- * Created by user1 on 18.02.2018.
+ * Консольный парсер данных
  */
-public class DataParser {
+public class ConsoleDataParser implements DataParser {
     private String templatePath;
     private String inputPath;
     private String outputPath;
@@ -55,9 +58,14 @@ public class DataParser {
     public void parse(){
         setTemplatePath(parseFileTemplatePath());
         setInputPath(parseInputFilePath());
-        setOutputPath(parseOutputFilePath());
+        setOutputPath(getPath(this.inputPath));
         setLeftPartPattern(parseLeftPartPattern());
         setRightPartPattern(parseRightPartPattern());
+    }
+
+    private String getPath(String path) {
+        int i = path.lastIndexOf(File.separator);
+        return path.substring(0, i + 1);
     }
 
     private String parseFileTemplatePath(){
@@ -69,12 +77,6 @@ public class DataParser {
     private String parseInputFilePath() {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите полный путь до файла с данными");
-        return in.nextLine();
-    }
-
-    private String parseOutputFilePath() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите полный путь до выходного файла");
         return in.nextLine();
     }
 

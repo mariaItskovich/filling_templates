@@ -1,14 +1,11 @@
 package workers;
 
-import api.DataParser;
-
-import java.io.File;
 import java.util.Scanner;
 
 /**
- * Консольный парсер данных
+ * Created by user1 on 18.02.2018.
  */
-public class ConsoleDataParser implements DataParser {
+public class DataParser {
     private String templatePath;
     private String inputPath;
     private String outputPath;
@@ -58,37 +55,38 @@ public class ConsoleDataParser implements DataParser {
     public void parse(){
         setTemplatePath(parseFileTemplatePath());
         setInputPath(parseInputFilePath());
-        setOutputPath(getPath(this.inputPath));
+        setOutputPath(parseOutputFilePath());
         setLeftPartPattern(parseLeftPartPattern());
         setRightPartPattern(parseRightPartPattern());
     }
 
-    private String getPath(String path) {
-        int i = path.lastIndexOf(File.separator);
-        return path.substring(0, i + 1);
-    }
-
     private String parseFileTemplatePath(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите полный путь до файла с шаблоном");
-        return in.nextLine();
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Введите полный путь до файла с шаблоном");
+        return "C:\\Users\\user1\\Desktop\\test\\bage.docx";
     }
 
     private String parseInputFilePath() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите полный путь до файла с данными");
-        return in.nextLine();
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Введите полный путь до файла с данными");
+        return "C:\\Users\\user1\\Desktop\\test\\data.xlsx";
+    }
+
+    private String parseOutputFilePath() {
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Введите полный путь до выходного каталога");
+        return "C:\\Users\\user1\\Desktop\\test\\test1";
     }
 
     private String parseLeftPartPattern() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите левую часть паттерна");
-        return in.nextLine();
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Введите левую часть паттерна");
+        return "{";
     }
 
     private String parseRightPartPattern() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Введите правую часть паттерна");
-        return in.nextLine();
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("Введите правую часть паттерна");
+        return "}";
     }
 }

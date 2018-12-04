@@ -1,15 +1,17 @@
 package starter;
 
-import api.DataParser;
+import workers.DataParser;
 import workers.TemplateFilesCreator;
-import workers.ConsoleDataParser;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-        DataParser parser = new ConsoleDataParser();
+    public static void main(String[] args){
+
+        DataParser parser = new DataParser();
         parser.parse();
-        TemplateFilesCreator creator = new TemplateFilesCreator(parser);
-        String source = creator.createTemplateFilesAndGetSource();
-        System.out.println("Файлы находятся в " + source);
+        try {
+            TemplateFilesCreator.createFiles(parser);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

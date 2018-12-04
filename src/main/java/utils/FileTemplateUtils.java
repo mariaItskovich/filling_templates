@@ -1,19 +1,20 @@
 package utils;
 
-import api.DataParser;
 import exceptions.WrongTemplateException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
 import pl.jsolve.templ4docx.core.Docx;
 import pl.jsolve.templ4docx.core.VariablePattern;
+import workers.DataParser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Утилитный класс для работы с шаблоном
+ * Created by user1 on 09.12.2017.
  */
 public class FileTemplateUtils {
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileTemplateUtils.class);
 
-    public static Docx getFileTemplate(DataParser parser) {
+    public static List<Docx> getFileTemplate(DataParser parser) {
         return getFileByPath(parser.getTemplatePath());
     }
 
@@ -23,12 +24,17 @@ public class FileTemplateUtils {
         return new VariablePattern(leftPart, rightPart);
     }
 
-    private static Docx getFileByPath(String path) {
+    private static List<Docx> getFileByPath(String path) {
         try {
-            return new Docx(path);
+            String[] split = StringUtils.split(path, ";");
+            List<Docx> list = new ArrayList<>();
+            for (String s : split) {
+                list.add(new Docx(s));
+            }
+            return list;
         }
         catch (Exception e) {
-            LOGGER.error("Ошибка при обращении к файлу с шаблоном", e);
+            System.out.println("Ошибка " + e.getMessage());
             throw new WrongTemplateException(e.getMessage());
         }
     }
